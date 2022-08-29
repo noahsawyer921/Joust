@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @round %>
+
+<div>
+  <% if @round.matchups.count > 0 && @round.active %>
+    <%= link_to "Start voting", matchup_path(@round.matchups.first.id) %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Edit this round", edit_round_path(@round) %> |
+  <%= link_to "Back to rounds", rounds_path %> |
+  <%= link_to "Back to bracket", bracket_path(@round.bracket_id)%>
+
+  <%= button_to "Destroy this round", @round, method: :delete %>
+</div>

@@ -1,0 +1,69 @@
+main {
+    gap: 15px;
+    padding-block: unset;
+    padding-top: 15px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+.room-info {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.room-code {
+    font-family: var(--font-body);
+}
+
+.users {
+    --bg-width: 700px;
+
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 1;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 50px;
+    min-height: 72vh;
+    width: var(--bg-width);
+    max-width: 100%;
+    padding: 40px;
+    padding-block: 70px;
+    padding-bottom: 100px;
+}
+
+.users > .background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url(<%=asset_path'blobs/room-background.png'%>);
+    background-size: min(var(--bg-width), 130%) auto;
+    background-repeat: no-repeat;
+    background-position: center max(200px, 25vh);
+    background-attachment: fixed;
+}
+
+.user {
+    position: relative;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    animation: pop var(--moving-transition-duration) 1 ease both;
+}
+
+.users > :where(.next, .button_to) {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+#move_to_choices {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}

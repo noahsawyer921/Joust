@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joust</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Nanum+Pen+Script&display=swap">
+
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="preload" as="style" href="https://use.typekit.net/dlv7cih.css" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/dlv7cih.css" crossorigin>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= yield :stylesheets %>
+    <% if Rails.env == "development" %>
+      <%= vite_javascript_tag 'fast-refresh' %>
+    <% end %>
+    <%= vite_typescript_tag 'turbo' %>
+    <%= vite_typescript_tag 'controllers' %>
+    <%= vite_client_tag %>
+    <%= yield :scripts %>
+
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

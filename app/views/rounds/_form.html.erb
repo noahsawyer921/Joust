@@ -1,0 +1,32 @@
+<%= form_with(model: round) do |form| %>
+  <% if round.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(round.errors.count, "error") %> prohibited this round from being saved:</h2>
+
+      <ul>
+        <% round.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :bracket_id, style: "display: block" %>
+    <%= form.text_field :bracket_id %>
+  </div>
+
+  <div>
+    <%= form.label :active, style: "display: block" %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div>
+    <%= form.label :round_num, style: "display: block" %>
+    <%= form.text_field :round_num %>
+  </div>
+
+  <div>
+    <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @matchup.first_choice %> 
+<% if session[:current_user_id] != nil%>
+  <% @current_user_id = session[:current_user_id] %>
+<% else %>
+  <% @current_user_id = 1 %>
+<% end %>
+<strong> Current votes: </strong> <%= first_choice_votes.count %>
+<% if next_matchup != nil %>
+  <%= button_to "Vote for this choice", {controller: "votes", action: "create", vote: {matchup_id: @matchup.id, choice_id: @matchup.first_choice_id, user_id: @current_user_id}, next_matchup: next_matchup}, {method: :post} %>
+<% elsif next_round != nil %>
+  <%= button_to "Vote for this choice", {controller: "votes", action: "create", vote: {matchup_id: @matchup.id, choice_id: @matchup.first_choice_id, user_id: @current_user_id}, next_round: next_round}, {method: :post} %>
+<% else %>
+  <%= button_to "Vote for this choice", {controller: "votes", action: "create", vote: {matchup_id: @matchup.id, choice_id: @matchup.first_choice_id, user_id: @current_user_id}}, {method: :post} %>
+<% end %>
+
+<%= render @matchup.second_choice %>
+<strong> Current votes: </strong> <%= second_choice_votes.count %>
+<% if next_matchup != nil %>
+  <%= button_to "Vote for this choice", {controller: "votes", action: "create", vote: {matchup_id: @matchup.id, choice_id: @matchup.second_choice_id, user_id: @current_user_id}, next_matchup: next_matchup}, {method: :post} %>
+<% elsif next_round != nil %>
+  <%= button_to "Vote for this choice", {controller: "votes", action: "create", vote: {matchup_id: @matchup.id, choice_id: @matchup.second_choice_id, user_id: @current_user_id}, next_round: next_round}, {method: :post} %>
+<% else %>
+  <%= button_to "Vote for this choice", {controller: "votes", action: "create", vote: {matchup_id: @matchup.id, choice_id: @matchup.second_choice_id, user_id: @current_user_id}}, {method: :post} %>
+<% end %>
+
+<div>
+  <% if next_matchup != nil %>
+    <%= link_to "Next matchup", matchup_path(next_matchup) %>
+  <% else %>
+    <% if next_round != nil %>
+      <%= link_to "Next round", round_path(next_round) %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Edit this matchup", edit_matchup_path(@matchup) %> |
+  <%= link_to "Back to matchups", matchups_path %> |
+  <%= link_to "Back to round", round_path(@matchup.round_id) %>
+
+  <%= button_to "Destroy this matchup", @matchup, method: :delete %>
+</div>

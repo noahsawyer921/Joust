@@ -1,0 +1,9 @@
+<%= form_with url: "/join_with_code", method: :get do |form| %>
+  <%= form.label :code, "Enter your code" %>
+  <%= form.text_field :code, {placeholder: "game code...", autocomplete: "off"} %>
+  <% if notice %>
+    <p><%= notice %></p>
+  <% end %>
+
+  <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+<% end %>

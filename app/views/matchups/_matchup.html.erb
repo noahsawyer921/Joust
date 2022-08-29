@@ -1,0 +1,19 @@
+<div id="<%= dom_id matchup %>">
+  <p>
+    <strong>Matchup <%= matchup.id %></strong>
+  </p>
+  <p>
+    <strong>Round:</strong>
+    <%= matchup.round_id %>
+  </p>
+  <div>
+    <p>
+      <%= render matchup.first_choice %> 
+    </p>
+  </div> 
+  <div>
+    <p>
+      <%= render matchup.second_choice %> 
+    </p>
+  </div>
+</div>

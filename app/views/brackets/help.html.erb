@@ -1,0 +1,22 @@
+<%= provide :stylesheets do %>
+    <%= stylesheet_link_tag "help", "data-turbo-track": "reload" %>
+<% end %>
+
+<main>
+  <nav><%= link_to "Return", root_url, class: "button secondary small navigation" %></nav>
+  <div class="logo-wrapper">
+    <%= image_tag 'blobs/home-orange.svg', class: 'blob' %>
+    <div style="flex-grow: 1;"></div>
+    <h1 class="label">How to play!</h1>
+    <h2>Joust your way to a decision!</h2>
+  </div>
+  <ul>
+    <li>start by submitting what you want</li>
+    <li>Vote on inputs to create a bracket</li>
+    <li>Choose options in a head-to-head tournament and crown a champion!</li>
+  </ul>
+  <div class="button-group">
+    <%= image_tag 'blobs/home-blue.svg', class: 'blob blue' %>
+    <p>good luck, <strong>happy Jousting!</strong></p>
+  </div>
+</main>

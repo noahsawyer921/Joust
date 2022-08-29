@@ -1,0 +1,61 @@
+main {
+    overflow-y: hidden;
+    overflow-x: clip;
+    padding: 0;
+    gap: 75px;
+    padding-block: 20px;
+}
+
+main > nav {
+    position: relative;
+    z-index: calc(var(--z-above) + 1);
+}
+
+main .logo-wrapper {
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 50px;
+    padding-bottom: 20px;
+    max-width: 445px;
+    height: 325px;
+    overflow: visible;
+}
+
+.logo-wrapper a {
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+ul {
+    list-style-image: url(<%=asset_path'icons/arrow-right.svg'%>);
+    margin-left: 50px;
+    text-transform: capitalize;
+    max-width: 40ch;
+}
+
+li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+h2, p {
+    font-family: var(--font-body);
+    text-transform: capitalize;
+    font-size: 1.25rem;
+    z-index: 1;
+}
+
+main .blob {
+    position: absolute;
+    bottom: 0%;
+    left: 55%;
+    transform: translateX(-50%);
+}
+
+main .blob.blue {
+    top: -15px;
+    left: unset;
+    border: unset;
+    transform: none;
+}

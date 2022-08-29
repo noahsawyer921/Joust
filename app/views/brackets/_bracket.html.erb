@@ -1,0 +1,17 @@
+<div id="<%= dom_id bracket %>">
+  <p>
+    <strong>Code:</strong>
+    <%= bracket.code %>
+  </p>
+  <p>
+    <strong>State:</strong>
+    <%= bracket.game_state %>
+  </p>
+  <% if active_round_for_bracket(bracket.id)%>
+  <p>
+    <strong>Active Round:</strong>
+    <%= active_round_for_bracket(bracket.id).round_num  %>
+  </p>
+  <% end %>
+
+</div>

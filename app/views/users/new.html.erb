@@ -1,0 +1,11 @@
+<%= provide :stylesheets do %>
+    <%= stylesheet_link_tag "enter-name", "data-turbo-track": "reload" %>
+<% end %>
+
+<main>
+  <div class="logo-wrapper">
+    <%= image_tag 'blobs/enter-name-green.svg', class: 'blob' %>
+    <%= image_tag src="j-looking-down.svg", {class: "logo", alt: "J looking down", width: "175px", height: "255.72px"}%>
+  </div>
+  <%= render "form", user: @user %>
+</main>

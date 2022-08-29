@@ -1,0 +1,39 @@
+.wrapper {
+    gap: 5px;
+    padding-block: 5px;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.progressWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2px;
+}
+
+.progressWrapper label {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.middle {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.middle .up {
+    right: 65px;
+}
+
+.middle .down {
+    left: 60px;
+    bottom: 45px;
+}
+
+.middle img {
+    position: absolute;
+}

@@ -1,0 +1,30 @@
+<%= form_with(model: vote) do |form| %>
+  <% if vote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+        <% vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :matchup_id, style: "display: block" %>
+    <%= form.text_field :matchup_id %>
+  </div>
+  <div>
+    <%= form.label :choice_id, style: "display: block" %>
+    <%= form.text_field :choice_id %>
+  </div>
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+  </div>
+<% end %>

@@ -1,0 +1,364 @@
+:where(button, .button) {
+    --scale: 1;
+    --width: calc(212.81px * var(--scale));
+    --height: calc(141px * var(--scale));
+
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: var(--width);
+    height: var(--height);
+    line-height: var(--height);
+
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-color-light);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-align: center;
+
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    /* Find a workaround for how this cuts off part of the button on safari */
+    /* overflow: hidden; */
+    -webkit-tap-highlight-color: transparent;
+
+    transition: color var(--transition-duration) ease;
+    filter: drop-shadow(-1px -1px 0 var(--surface-dark))
+        drop-shadow(-1px 1px 0 var(--surface-dark))
+        drop-shadow(1px -1px 0 var(--surface-dark))
+        drop-shadow(1px 1px 0 var(--surface-dark))
+        drop-shadow(0 4px 2px rgba(0, 0, 0, 0.15));
+}
+
+:where(button, .button):where(:focus-visible, :focus) {
+    outline: none;
+}
+
+:where(button, .button).small {
+    --scale: 0.39;
+    font-size: 1rem;
+}
+
+:where(button, .button).invert {
+    color: var(--text-color);
+}
+
+:where(button, .button).secondary {
+    --width: calc(223px * var(--scale));
+    --height: calc(56px * var(--scale));
+
+    font-size: 1.1rem;
+    line-height: calc(var(--height) + 5px);
+
+    color: var(--text-color);
+    filter: drop-shadow(-1px -1px 0 var(--surface-dark))
+        drop-shadow(-1px 1px 0 var(--surface-dark))
+        drop-shadow(1px -1px 0 var(--surface-dark))
+        drop-shadow(1px 1px 0 var(--surface-dark));
+}
+
+:where(button, .button).secondary.small {
+    --scale: 1;
+    --width: calc(73px * var(--scale));
+    --height: calc(31px * var(--scale));
+    font-size: 1rem;
+
+    line-height: 38px;
+    letter-spacing: unset;
+}
+
+:where(button, .button).secondary.large {
+    --scale: 1;
+    --width: calc(321px * var(--scale));
+    --height: calc(56px * var(--scale));
+
+    font-size: 1.1rem;
+    font-weight: 400;
+
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-inline: 20px;
+}
+
+:where(button, .button)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--surface-dark);
+    clip-path: path(
+        'M204.694 18.8528C203.831 10.3199 196.75 3.76468 188.175 3.56214L44.811 0.175583C40.0372 0.0628155 35.4009 1.7794 31.8516 4.97381V4.97381C18.6365 16.8673 10.4981 33.385 9.11945 51.1104L4.09442 115.718C3.0689 128.903 14.2033 139.815 27.3652 138.523L182.398 123.305C200.352 121.542 213.459 105.533 211.644 87.5855L204.694 18.8528Z'
+    );
+    z-index: -1;
+    border: none;
+    transition: background-color var(--transition-duration) ease;
+}
+
+:where(button, .button).invert::before {
+    background-color: var(--surface-light);
+}
+
+:where(button, .button).flipped::before {
+    clip-path: path(
+        'M11.4598 120.368C12.3227 128.901 19.4043 135.456 27.9784 135.659L171.343 139.045C176.117 139.158 180.753 137.441 184.302 134.247V134.247C197.517 122.353 205.656 105.836 207.034 88.1103L212.059 23.5028C213.085 10.3175 201.95 -0.593997 188.789 0.697967L33.7554 15.916C15.8022 17.6782 2.69436 33.6873 4.50933 51.6352L11.4598 120.368Z'
+    );
+}
+
+:where(button, .button).small::before {
+    clip-path: path('M80.0063 7.35312C79.6697 4.02503 76.9077 1.46833 73.5636 1.38933L17.6475 0.0684822C15.7856 0.0244999 13.9773 0.694017 12.593 1.93992V1.93992C7.43877 6.57873 4.26455 13.021 3.72684 19.9345L1.76694 45.1332C1.36696 50.2758 5.70969 54.5316 10.8432 54.0277L71.3104 48.0922C78.3126 47.4049 83.425 41.1609 82.7172 34.1607L80.0063 7.35312Z');
+}
+
+:where(button, .button).secondary::before {
+    background-color: var(--surface-light);
+    clip-path: path('M4.20492 12.4904C4.64505 7.93131 8.43904 4.42993 13.0188 4.35638L211.855 1.16305C216.882 1.08233 221 5.13479 221 10.1619V46C221 50.9706 216.971 55 212 55H10.0119C4.69957 55 0.543045 50.4229 1.0535 45.1352L4.20492 12.4904Z');
+}
+
+:where(button, .button).secondary.small::before {
+    clip-path: path('M2.82383 7.43933C2.96231 5.0919 4.87455 3.24108 7.22525 3.1793L68.7903 1.56123C71.3369 1.4943 73.4375 3.54044 73.4375 6.08792V25.8975C73.4375 28.3984 71.4101 30.4258 68.9093 30.4258H6.2711C3.66538 30.4258 1.59727 28.2321 1.75072 25.6309L2.82383 7.43933Z');
+}
+
+:where(button, .button).secondary.large::before {
+    clip-path: path('M7.10102 12.1646C7.71404 7.75317 11.4614 4.45358 15.915 4.40389L310.9 1.11275C315.909 1.05686 320 5.10237 320 10.1122V46C320 50.9706 315.971 55 311 55H11.4857C6.02259 55 1.81942 50.1724 2.57136 44.7613L7.10102 12.1646Z');
+}
+
+:where(button, .button).secondary.large.reverse::before {
+    clip-path: path('M313.899 12.1646C313.286 7.75317 309.539 4.45358 305.085 4.40389L10.1004 1.11275C5.09091 1.05686 1 5.10237 1 10.1122V46C1 50.9706 5.02942 55 10 55H309.514C314.977 55 319.181 50.1724 318.429 44.7613L313.899 12.1646Z');
+}
+
+:where(button, .button):where(:focus-visible, :focus, :hover) {
+    color: var(--text-color);
+}
+
+:where(button, .button):where(:focus-visible, :focus, :hover)::before {
+    background-color: var(--surface-light);
+}
+
+:where(button, .button):where(.invert):where(:hover, :focus) {
+    filter: drop-shadow(-2px -2px 0 var(--surface-dark))
+        drop-shadow(-2px 2px 0 var(--surface-dark))
+        drop-shadow(2px -2px 0 var(--surface-dark))
+        drop-shadow(2px 2px 0 var(--surface-dark))
+        drop-shadow(0 4px 2px rgba(0, 0, 0, 0.15));
+}
+
+:where(button, .button).secondary:where(:hover) {
+    color: var(--text-color-light);
+    filter: drop-shadow(-1px -1px 0 var(--surface-dark))
+        drop-shadow(-1px 1px 0 var(--surface-dark))
+        drop-shadow(1px -1px 0 var(--surface-dark))
+        drop-shadow(1px 1px 0 var(--surface-dark))
+        drop-shadow(0 4px 2px rgba(0, 0, 0, 0.15));
+}
+
+:where(button, .button).secondary:where(:focus-visible, :focus) {
+    filter: drop-shadow(-2px -2px 0 var(--surface-dark))
+        drop-shadow(-2px 2px 0 var(--surface-dark))
+        drop-shadow(2px -2px 0 var(--surface-dark))
+        drop-shadow(2px 2px 0 var(--surface-dark));
+}
+
+:where(button, .button).secondary:where(:hover, [aria-checked="true"]) {
+    color: var(--text-color-light);
+}
+
+:where(button, .button).secondary:where(:hover, [aria-checked="true"])::before {
+    background-color: var(--surface-darker);
+}
+
+:where(button, .button).checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:where(button, .button).checkbox > :first-child {
+    flex-shrink: 1;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 100%;
+}
+
+:where(button, .button).secondary:where([aria-checked="true"])::after {
+    content: '';
+    display: inline-block;
+    top: 50%;
+    left: 70%;
+    background-image: url(<%=asset_path'icons/check.svg'%>);
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 22px;
+    vertical-align: -2px;
+    margin-left: 20px;
+    flex: 0 0 auto;
+}
+
+:where(button, .button):active {
+    filter: drop-shadow(-1px -1px 0 var(--surface-dark))
+        drop-shadow(-1px 1px 0 var(--surface-dark))
+        drop-shadow(1px -1px 0 var(--surface-dark))
+        drop-shadow(1px 1px 0 var(--surface-dark));
+}
+
+:where(button, .button).secondary:active {
+    color: var(--text-color-light);
+}
+
+:where(button, .button).secondary:active::before {
+    background-color: var(--surface-dark);
+}
+
+:where(button, .button).navigation {
+    text-transform: unset;
+}
+
+:where(button, .button).icon {
+    filter: unset;
+    border: 2px solid var(--surface-dark);
+    color: var(--text-color-dark);
+    font-family: var(--font-writing);
+    font-size: 2.25rem;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    line-height: unset;
+    border-radius: 5px;
+    outline: none;
+}
+
+:where(button, .button).icon:where(:hover, :focus) {
+    outline: 2px solid black;
+}
+
+:where(button, .button).icon::before {
+    display: none;
+    clip-path: unset;
+    background-color: transparent;
+}
+
+a.button {
+    text-decoration: none;
+}
+
+button.text {
+    width: auto;
+    height: auto;
+    line-height: initial;
+    filter: none;
+    color: var(--text-color);
+}
+
+.option-text {
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+button.text:not([aria-disabled="true"]):where(:hover, :focus) {
+    text-decoration: line-through;
+}
+
+button.text::before {
+    content: unset;
+}
+
+input[type='text'] {
+    appearance: none;
+    border: 3px solid var(--surface-dark);
+    border-radius: 12px;
+    padding: 1em 0.75em;
+    font-size: var(--text-font-size);
+    color: var(--text-color);
+    transition: outline-offset 150ms ease;
+    text-transform: uppercase;
+    width: 335px;
+    max-width: 100%;
+}
+
+input[type='text']:where(:focus, :focus-visible) {
+    border-color: var(--primary);
+    outline: none;
+}
+
+input[type='text']::placeholder {
+    color: var(--text-color-placeholder);
+}
+
+:where(label, .label) {
+    position: relative;
+    font-family: var(--font-writing);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+:where(label, .label):not(.simple)::after {
+    content: '';
+    position: absolute;
+    background-image: url(<%=asset_path'icons/label-line.svg'%>);
+    width: 100%;
+    /* From image */
+    max-width: 183px;
+    height: 100%;
+    background-repeat: no-repeat;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+:where(label, .label).progress {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+progress {
+    appearance: none;
+    outline: 1px solid var(--surface-dark);
+    outline-offset: -2px;
+    width: 200px;
+    height: 24px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+::-moz-progress-bar {
+  background-color: red;
+  border-radius: 5px 0 0 5px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--surface-lightest);
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    border-radius: 5px 0 0 5px;
+    background-color: var(--surface-dark);
+}
+
+div.box {
+    border: 2px solid var(--primary);
+    padding: 0.45em 2em;
+}
+
+div.button-group {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    overflow-x: clip;
+}

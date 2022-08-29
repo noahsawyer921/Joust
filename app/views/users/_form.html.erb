@@ -1,0 +1,18 @@
+<%= form_with(model: user) do |form| %>
+  <%= form.label :name, "Enter your name" %>
+  <%= form.text_field :name, placeholder: "my name is...", required: true %>
+
+  <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

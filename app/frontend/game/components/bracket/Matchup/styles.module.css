@@ -1,0 +1,75 @@
+.matchup {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.matchup.finalFour {
+    gap: 65px;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.matchup.finalFour .choice {
+    font-size: 1.5rem;
+}
+
+.matchup.final {
+    gap: 50px;
+    flex-direction: column;
+}
+
+.matchup.final .choice {
+    font-size: 1.75rem;
+}
+
+.blob {
+    position: absolute;
+    z-index: -1;
+}
+
+.blob.final {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blob.orangeFinalFour {
+    top: 50%;
+    left: -300px;
+    transform: translateY(-50%);
+}
+
+.blob.yellowFinalFour {
+    top: 50%;
+    left: -105px;
+    transform: translateY(-50%);
+}
+
+.blob.pink {
+    right: -25px;
+    top: -30px;
+}
+
+.blob.orange {
+    right: -50px;
+}
+
+.blob.yellow {
+    bottom: -40px;
+    right: -10px;
+}
+
+.blob.blue {
+    top: -75px;
+}
+
+.choice {
+    width: 140px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+}

@@ -1,0 +1,35 @@
+main {
+    overflow-y: hidden;
+    overflow-x: clip;
+    padding: 0;
+}
+
+main .logo-wrapper {
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    max-width: 445px;
+    height: 325px;
+    overflow: visible;
+}
+
+.logo-wrapper a {
+    align-self: flex-end;
+    margin-right: 20px;
+    width: 1em;
+}
+
+main .blob {
+    position: absolute;
+    bottom: 0%;
+    left: 55%;
+    transform: translateX(-50%);
+}
+
+main .blob.blue {
+    top: 80%;
+    left: unset;
+    border: unset;
+    transform: none;
+}

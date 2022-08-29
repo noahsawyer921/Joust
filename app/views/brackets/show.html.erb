@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @bracket %>
+
+<% if @bracket.game_state == Bracket::STATES[:finish] %>
+  <%= link_to "Display winner", bracket_winner_path(@bracket) %>
+<% elsif session_is_admin?(@bracket.id) %>
+  <%= button_to "Start next round", bracket_next_path(@bracket), {method: :patch, class: "button"} %>
+<% end %>
+<h2>Users </h2>
+<% @bracket.users.each do |user| %>
+  <%= render user %>
+<% end %>
+<h2>Choices </h2>
+<strong>Bracket Size </strong><%= bracket_size %>
+<% @bracket.choices.each do |choice| %>
+  <turbo-frame id="<%= dom_id choice %>">
+  <%= render choice %>
+  <% if !active_round %>
+    <strong>Initial Votes:</strong> <%= initial_votes_count(choice)%>
+    <%= button_to "Vote for this choice", {controller: "initial_votes", action: "create", initial_vote: {bracket_id: @bracket.id, choice_id: choice.id, user_id: session[:current_user_id]}}, {method: :post, class: "button"} %>
+    <% if session_is_admin?(@bracket.id) %>
+      <%= button_to "Destroy", choice_path(choice), method: :delete %>
+    <% end %>
+  <% end %>
+  </turbo-frame>
+<% end %>
+<% if session_is_admin?(@bracket.id) %>
+<%= render "choices/form", {choice: Choice.new} %>
+<% end %>
+<% if active_round %>
+  <%= link_to "View active round", round_path(active_round) %>
+<% end %>
+
+
+<% if session_is_admin?(@bracket.id) %>
+<div>
+  <%= link_to "Edit this bracket", edit_bracket_path(@bracket) %> |
+  <% if active_round %>
+  <%= link_to "View active round", round_path(active_round) %> |
+  <% end %>
+  <%= link_to "Back to brackets", brackets_path %>
+
+  <%= button_to "Destroy this bracket", @bracket, method: :delete %>
+</div>
+<% end %>

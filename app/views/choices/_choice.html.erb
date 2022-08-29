@@ -1,0 +1,8 @@
+<turbo-frame id="<%= dom_id choice %>" class="choice">
+  <%# <% if defined?(session) && is_admin?(choice.bracket_id, choice.user_id) && Bracket.find_by(id: choice.bracket_id).game_state == 1 %>
+    <%= button_to choice.label, choice_path(choice), {method: :delete, class: "text"} %>
+
+  <%# <% else %>
+    <%# <p class="option-text"><%= choice.label</p> %>
+  <%# <% end %>
+</turbo-frame>

@@ -1,0 +1,11 @@
+<%= provide :stylesheets do %>
+    <%= stylesheet_link_tag "enter-code", "data-turbo-track": "reload" %>
+<% end %>
+
+<main>
+  <div class="logo-wrapper">
+    <%= image_tag 'blobs/enter-code-orange.svg', class: 'blob' %>
+    <%= image_tag src="j-looking-down.svg", {class: "logo", alt: "J looking down", width: "175px", height: "255.72px"}%>
+  </div>
+  <%= render "form", bracket: @bracket %>
+</main>

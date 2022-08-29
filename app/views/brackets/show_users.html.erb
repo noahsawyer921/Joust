@@ -1,0 +1,29 @@
+<%= provide :stylesheets do %>
+    <%= stylesheet_link_tag "room", "data-turbo-track": "reload" %>
+<% end %>
+
+<main>
+  <nav><%= render partial: "leave_button" %></nav>
+  <div class="room-info">
+    <p class="label">Room Code</p>
+    <h1 class="room-code"><%= @bracket.code %></h1>
+  </div>
+
+  <%= turbo_stream_from "users_#{session[:current_bracket_id]}" %>
+    <turbo-frame id="users_<%=session[:current_bracket_id]%>" class="users" target="_top">
+      <div class="background"></div>
+        
+      <% @bracket.users.each do |user| %>
+        <%= render user %>
+      <% end %>
+      
+      <turbo-frame id="move_to_choices"  target="_top">
+        <% if session_is_admin?(@bracket.id) and @bracket.game_state == Bracket::STATES[:users] %>
+          <%= button_to "Next", bracket_move_to_choices_path(@bracket), {method: :patch, class:"button small navigation next"} %>
+        <% elsif @bracket.game_state == Bracket::STATES[:choices] %>
+          <%= link_to "Next", bracket_waiting_ideas_path(@bracket), {class:"button small navigation next"}%>
+        <% end %>
+      </turbo-frame>
+    </turbo-frame>
+    
+</main>

@@ -1,0 +1,23 @@
+<div id="<%= dom_id round %>">
+  <p>
+    <strong>Belongs to Bracket:</strong>
+    <%= round.bracket_id %>
+  </p>
+  <p>
+    <strong>Active?</strong>
+    <%= round.active %>
+  </p>
+  <p>
+    <strong>Round Num:</strong>
+    <%= round.round_num %>
+  </p>
+
+
+  <br />
+
+  <% round.matchups.each do |matchup|%>
+    <%= render matchup %>
+    <br />
+  <% end %>
+
+</div>

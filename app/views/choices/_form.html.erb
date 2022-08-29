@@ -1,0 +1,22 @@
+<%= form_with(model: choice, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |form| %>
+  <div class="button-group">
+    <%= form.text_field :label, {placeholder: "What do you want?", autocomplete: "off", required: true} %>
+    <%# TODO: Use field for description of choice %>
+    <%= form.text_field :reasoning, {placeholder: "Why?", autocomplete: "off"} %>
+    <%= form.button "Submit", {type: "submit", class: "secondary"} %>
+    <%= form.hidden_field :user_id, value: session[:current_user_id] || -1 %>
+    <%= form.hidden_field :bracket_id, value: session[:current_bracket_id] || -1 %>
+  </div>
+
+  <% if choice.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(choice.errors.count, "error") %> prohibited this choice from being saved:</h2>
+
+      <ul>
+        <% choice.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

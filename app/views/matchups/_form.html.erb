@@ -1,0 +1,30 @@
+<%= form_with(model: matchup) do |form| %>
+  <% if matchup.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(matchup.errors.count, "error") %> prohibited this matchup from being saved:</h2>
+
+      <ul>
+        <% matchup.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :round_id, style: "display: block" %>
+    <%= form.text_field :round_id %>
+  </div>
+  <div>
+    <%= form.label :first_choice_id, style: "display: block" %>
+    <%= form.text_field :first_choice_id %>
+  </div>
+  <div>
+    <%= form.label :second_choice_id, style: "display: block" %>
+    <%= form.text_field :second_choice_id %>
+  </div>
+
+  <div>
+    <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+  </div>
+<% end %>

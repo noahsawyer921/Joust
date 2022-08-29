@@ -1,0 +1,28 @@
+
+<%= provide :stylesheets do %>
+    <%= stylesheet_link_tag "show-ideas", "data-turbo-track": "reload" %>
+<% end %>
+
+<main>
+  <nav>
+    <%= turbo_stream_from "choices_#{session[:current_bracket_id]}" %>
+    <%= render partial: "leave_button" %>
+  </nav>
+  <div class="room-info">
+    <p class="label">Done? Click Next!</p>
+  </div>
+  <turbo-frame id="choices_<%=session[:current_bracket_id]%>" class="choices">
+    <% @bracket.choices.each do |choice| %>
+      <%= render choice %>
+    <% end %>
+  </turbo-frame>
+  <% if logged_in? and in_game? and @bracket.id == session[:current_bracket_id] %>
+    <%= render "choices/form", {choice: Choice.new} %>
+    <div class="row-wrapper">
+      <div class="next-wrapper">
+          <%= link_to "Next", "#{ready_to_start_url}?current_game_state=#{@bracket.game_state.to_s}", {class: "button small navigation", data: {turbo: false}} %>
+          <%= image_tag src="blobs/show-ideas-green.svg", alt: "" %>
+      </div>
+    </div>
+  <% end %>
+</main>

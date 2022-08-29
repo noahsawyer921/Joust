@@ -1,0 +1,16 @@
+<%= provide :stylesheets do %>
+    <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+<% end %>
+
+<main>
+  <div class="logo-wrapper">
+    <%= image_tag 'blobs/home-orange.svg', class: 'blob' %>
+    <%= link_to "?", help_path, class: "button icon" %>
+    <%= render "layouts/logo" %>
+  </div>
+  <div class="button-group">
+    <%= image_tag 'blobs/home-blue.svg', class: 'blob blue' %>
+    <%= button_to "Create", {controller: "brackets", action: "create"}, {method: :post, class: "button invert navigation"} %>
+    <%= link_to "Join", join_path , class: "button flipped navigation" %>
+  </div>
+</main>

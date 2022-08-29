@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Matchups</h1>
+
+<div id="matchups">
+  <% @matchups.each do |matchup| %>
+    <%= render matchup %>
+    <%= link_to "Show this matchup", matchup %>
+    <br></br>
+  <% end %>
+</div>
+
+<%= link_to "New matchup", new_matchup_path %>
+<div>
+  <p><%= link_to "See Brackets", brackets_path %></p>
+  <p><%= link_to "See Rounds", rounds_path %></p>
+  <p><%= link_to "See Matchups", matchups_path %></p>
+  <p><%= link_to "See Choices", choices_path %></p>
+  <p><%= link_to "See Votes", votes_path %></p>
+</div>

@@ -1,0 +1,55 @@
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    gap: 50px;
+    background-color: var(--surface);
+    margin-inline: auto;
+    max-width: 800px;
+    padding-block: 15px;
+}
+
+main > form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 100%;
+}
+
+main .logo {
+    position: relative;
+}
+
+main > nav {
+    align-self: flex-start;
+    margin-left: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+main .logo-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    overflow-x: clip;
+    align-self: center;
+    width: 100%;
+    z-index: var(--z-above);
+}
+
+main .row-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    max-width: 800px;
+    width: 100%;
+    padding-inline: 20px;
+}

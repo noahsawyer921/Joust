@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Brackets</h1>
+
+<div id="brackets">
+  <% @brackets.each do |bracket| %>
+    <%= render bracket %>
+    <p>
+      <%= link_to "Show this bracket", bracket %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bracket", new_bracket_path %>
+<div>
+  <p><%= link_to "See Brackets", brackets_path %></p>
+  <p><%= link_to "See Rounds", rounds_path %></p>
+  <p><%= link_to "See Matchups", matchups_path %></p>
+  <p><%= link_to "See Choices", choices_path %></p>
+  <p><%= link_to "See Votes", votes_path %></p>
+</div>

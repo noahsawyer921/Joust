@@ -1,0 +1,17 @@
+<%= form_with(model: bracket) do |form| %>
+
+  <%= form.label "Create a new bracket" %>
+  <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+
+  <% if bracket.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bracket.errors.count, "error") %> prohibited this bracket from being saved:</h2>
+
+      <ul>
+        <% bracket.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

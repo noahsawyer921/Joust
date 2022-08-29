@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Choices</h1>
+
+<div id="choices">
+  <% @choices.each do |choice| %>
+    <%= render choice %>
+    <p>
+      <%= link_to "Show this choice", choice %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New choice", new_choice_path %>
+<div>
+  <p><%= link_to "See Brackets", brackets_path %></p>
+  <p><%= link_to "See Rounds", rounds_path %></p>
+  <p><%= link_to "See Matchups", matchups_path %></p>
+  <p><%= link_to "See Choices", choices_path %></p>
+  <p><%= link_to "See Votes", votes_path %></p>
+</div>

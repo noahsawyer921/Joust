@@ -1,0 +1,36 @@
+.progressWrapper {
+    position: fixed;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: var(--surface-light);
+    padding: 35px;
+    font-size: 1.25rem;
+}
+
+.progress {
+    --stroke-length: 219.9424285888672;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: path(
+        'M 35 0 A 35 35 0 0 1 70 35 A 35 35 0 0 1 35 70 A 35 35 0 0 1 0 35 A 35 35 0 0 1 35 0'
+    );
+    stroke-dasharray: var(--stroke-length);
+}
+
+@keyframes progressAnimation {
+    from {
+        stroke-dashoffset: var(--stroke-length);
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

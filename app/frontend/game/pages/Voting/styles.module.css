@@ -1,0 +1,43 @@
+.nextWrapper {
+    position: relative;
+    z-index: var(--z-above);
+}
+
+.orangeBlob {
+    position: absolute;
+    z-index: -1;
+    top: -25px;
+    right: -50px;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    top: -45px;
+    left: -175px;
+    z-index: -1;
+    overflow: clip;
+}
+
+.voteInfo {
+    position: relative;
+    z-index: var(--z-above);
+}
+
+.voteInfoDescription {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+    max-width: unset;
+}
+
+.center {
+    width: 800px;
+    align-self: center;
+    max-width: 100%;
+}

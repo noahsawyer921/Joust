@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require components
+ *= require screens
+ */
+
+@font-face {
+    font-family: 'Nanum Pen Script-fallback';
+    size-adjust: 79.63%;
+    ascent-override: 119%;
+    src: local('Arial');
+}
+
+:root {
+    /* None of these are final */
+    --font-heading: museo, 'serif';
+    --font-body: 'Josefin Sans', sans-serif;
+    --font-writing: 'Nanum Pen Script', 'Nanum Pen Script-fallback', cursive;
+    --transition-duration: 200ms;
+    --moving-transition-duration: 250ms;
+    --moving-transition-duration-long: 1s;
+    --text-font-size: 1rem;
+
+    --blue: #2c88d9;
+    --gray: rgb(243, 243, 242);
+    --light-gray: darkgray;
+    --lightest-gray: rgb(215, 215, 215);
+    --white: white;
+    --black: #1e1e1e;
+    --orange: #ff9e00;
+    --light-blue: #7ccef7;
+    --yellow: #ffd728;
+    --green: #3baa61;
+    --pink: #fda1b7;
+
+    --primary: var(--blue);
+    --secondary: var(--green);
+    --surface: var(--gray);
+    --surface-light: var(--white);
+    --surface-darker: rgb(79, 79, 79);
+    --surface-dark: var(--black);
+    --background: var(--white);
+    --text-color: var(--black);
+    --text-color-placeholder: gray;
+    --text-color-light: var(--white);
+
+    --z-above: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --moving-transition-duration: 0;
+        --moving-transition-duration-long: 0;
+    }
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-writing);
+    font-weight: 300;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+body {
+    background-color: var(--surface);
+}
+
+p.message {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.25);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

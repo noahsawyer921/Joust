@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Readies</h1>
+
+<div id="readies">
+  <% @readies.each do |ready| %>
+    <%= render ready %>
+    <p>
+      <%= link_to "Show this ready", ready %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New ready", new_ready_path %>

@@ -1,0 +1,54 @@
+main {
+    background-image: url('<%=asset_path'blobs/show-ideas-background.png'%>');
+    background-size: min(800px, 120%) auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    max-width: 100%;
+    padding: 15px 5px;
+}
+
+.choices {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+    padding-inline: 50px;
+    margin-bottom: 70px;
+    min-height: min(300px, 25vh);
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.choice {
+    animation: pop var(--moving-transition-duration) 1 ease both;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+.choice > * {
+    width: 100%;
+}
+
+.choice:nth-child(2n) > * {
+    text-align: right;
+}
+
+.choice:nth-child(2n + 1) > * {
+    text-align: left;
+}
+
+.next-wrapper {
+    position: relative;
+    z-index: var(--z-above);
+}
+
+.next-wrapper > img {
+    position: absolute;
+    top: -45px;
+    left: -175px;
+    z-index: -1;
+}

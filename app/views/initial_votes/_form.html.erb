@@ -1,0 +1,32 @@
+<%= form_with(model: initial_vote) do |form| %>
+  <% if initial_vote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(initial_vote.errors.count, "error") %> prohibited this initial_vote from being saved:</h2>
+
+      <ul>
+        <% initial_vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :choice_id, style: "display: block" %>
+    <%= form.text_field :choice_id %>
+  </div>
+
+  <div>
+    <%= form.label :bracket_id, style: "display: block" %>
+    <%= form.text_field :bracket_id %>
+  </div>
+
+  <div>
+    <%= form.button "Next &rarr;".html_safe, {type: "submit", class: "navigation"} %>
+  </div>
+<% end %>

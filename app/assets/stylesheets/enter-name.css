@@ -1,0 +1,17 @@
+main {
+    overflow-y: hidden;
+}
+
+main .blob {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-24%);
+}
+
+main .blob.blue {
+    top: 80%;
+    left: unset;
+    border: unset;
+    transform: none;
+}

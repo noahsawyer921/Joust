@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ready %>
+
+<div>
+  <%= link_to "Edit this ready", edit_ready_path(@ready) %> |
+  <%= link_to "Back to readies", readies_path %>
+
+  <%= button_to "Destroy this ready", @ready, method: :delete %>
+</div>
